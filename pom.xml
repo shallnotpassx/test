@@ -118,59 +118,11 @@
         </dependency>
     </dependencies>
 
-    <profiles>
-        <profile>
-            <id>dev</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <ppx.environment>dev2-b2b-us</ppx.environment>
-            </properties>
-        </profile>
-        <profile>
-            <id>test</id>
-            <properties>
-                <ppx.environment>test</ppx.environment>
-            </properties>
-        </profile>
-        <profile>
-            <id>production</id>
-            <properties>
-                <ppx.environment>production</ppx.environment>
-            </properties>
-        </profile>
-    </profiles>
-
     <build>
-        <finalName>test</finalName>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
-        <filters>
-            <filter>src/main/resources/profile/${ppx.environment}.properties</filter>
-        </filters>
-
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>test-war</id>
-                        <goals>
-                            <goal>war</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
