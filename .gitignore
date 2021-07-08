@@ -53,5 +53,4 @@ target
 .gradle
 Guardfile
 README.html
-*.iml
 .idea
